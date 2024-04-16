@@ -4,9 +4,7 @@ use rocket::serde::json::Json;
 use bambangshop::{Result, compose_error_response};
 use crate::model::product::Product;
 use crate::repository::product::ProductRepository;
-use crate::service::notification::NotificationService
-
-use super::notification::NotificationService;
+use crate::service::notification::NotificationService;
 
 pub struct ProductService;
 
