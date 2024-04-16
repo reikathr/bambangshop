@@ -65,11 +65,11 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement unsubscribe function in Notification controller.`
     -   [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
-    -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
-    -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
-    -   [ ] Commit: `Implement publish function in Program service and Program controller.`
-    -   [ ] Commit: `Edit Product service methods to call notify after create/delete.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+    -   [x] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
+    -   [x] Commit: `Implement notify function in Notification service to notify each Subscriber.`
+    -   [x] Commit: `Implement publish function in Program service and Program controller.`
+    -   [x] Commit: `Edit Product service methods to call notify after create/delete.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -97,3 +97,11 @@ This is the place for you to write reflections:
 </ol>
 
 #### Reflection Publisher-3
+<ol>
+<li>Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?</li>
+<p>Answer: In BambangShop, the variation used is Push model where the publisher pushes data to subscribers. We can see this by looking at Product service and seeing that product is the one calling the notify method to notify observers who are subscribed when a product is added or deleted, so it's not the observers who are "looking" for a notification.</p>
+<li>What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)</li>
+<p>Answer: If we used pull, the advantages would be the fact that the observers (subscribers) get to call for a notification when they want to, so they're in control of it. That can decrease unnecessary/unwanted processes and reduce resources needed. However, because it's the subscribers calling for a notification, they wouldn't get instantaneous updates of when a product is released or deleted (which is the case for the push model), so it's not very useful for a notification feature.</p>
+<li>Explain what will happen to the program if we decide to not use multi-threading in the notification process.</li>
+<p>Answer: The lack of multi-threading means that notifications can't be processed and given in parallel (at the same time). If there are 1000 subscribers to give notifications to, they won't receive it at the exact same time and it'll take a long time to process them, making it unfair for the subscribers.</p>
+</ol>
